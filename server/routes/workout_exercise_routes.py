@@ -3,7 +3,7 @@ from models import Workout, Exercise, WorkoutExercise
 from schemas import workout_exercise_schema, workout_exercises_schema, db
 
 workout_exercise_bp = Blueprint('workout_exercises', __name__,
-                                 url_prefix='/workouts/<int:workout_id>/exercises/<int:exercise_id>/workout_exercises')
+                                url_prefix='/workouts/<int:workout_id>/exercises/<int:exercise_id>/workout_exercises')
 
 @workout_exercise_bp.route('', methods=['POST'])
 def add_exercise_to_workout(workout_id, exercise_id):
