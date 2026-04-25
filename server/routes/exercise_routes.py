@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, abort
-from models import Exercise, WorkoutExercise
-from schemas import exercise_schema, exercises_schema, db
+from ..models import Exercise, WorkoutExercise
+from ..schemas import exercise_schema, exercises_schema
+from ..extensions import db
 
 exercise_bp = Blueprint('exercises', __name__, url_prefix='/exercises')
 
