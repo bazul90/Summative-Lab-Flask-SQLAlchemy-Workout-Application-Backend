@@ -1,6 +1,7 @@
 from datetime import date
-from server import create_app, db
-from server.models import Exercise, Workout, WorkoutExercise
+from app import create_app
+from extensions import db
+from models import Exercise, Workout, WorkoutExercise
 
 app = create_app()
 
