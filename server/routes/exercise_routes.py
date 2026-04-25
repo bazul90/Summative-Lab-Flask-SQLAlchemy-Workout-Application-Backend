@@ -38,11 +38,10 @@ def create_exercise():
         abort(400, description="No input data provided")
 
     try:
-        data = exercise_schema.load(json_data)
+        exercise = exercise_schema.load(json_data)
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
-    exercise = Exercise(**data)
     db.session.add(exercise)
     db.session.commit()
 

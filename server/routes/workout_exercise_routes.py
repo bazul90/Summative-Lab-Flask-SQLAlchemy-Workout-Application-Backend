@@ -18,7 +18,7 @@ def add_exercise_to_workout(workout_id, exercise_id):
     json_data = request.get_json() or {}
 
     try:
-        data = workout_exercise_schema.load({
+        workout_exercise = workout_exercise_schema.load({
             'workout_id': workout_id,
             'exercise_id': exercise_id,
             'reps': json_data.get('reps'),
@@ -28,7 +28,6 @@ def add_exercise_to_workout(workout_id, exercise_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
-    workout_exercise = WorkoutExercise(**data)
     db.session.add(workout_exercise)
     db.session.commit()
 
