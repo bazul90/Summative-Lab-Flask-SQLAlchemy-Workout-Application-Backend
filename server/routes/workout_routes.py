@@ -29,7 +29,7 @@ def get_workout(workout_id):
 
     return jsonify(workout_data), 200
 
-@workout_bp.route('', methods=['POST'])
+@workout_bp.route('/', methods=['POST'])
 def create_workout():
     json_data = request.get_json()
     if not json_data:

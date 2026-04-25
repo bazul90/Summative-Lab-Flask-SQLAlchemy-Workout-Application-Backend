@@ -6,7 +6,7 @@ from ..extensions import db
 workout_exercise_bp = Blueprint('workout_exercises', __name__,
                                 url_prefix='/workouts/<int:workout_id>/exercises/<int:exercise_id>/workout_exercises')
 
-@workout_exercise_bp.route('', methods=['POST'])
+@workout_exercise_bp.route('/', methods=['POST'])
 def add_exercise_to_workout(workout_id, exercise_id):
     workout = Workout.query.get_or_404(workout_id)
     exercise = Exercise.query.get_or_404(exercise_id)

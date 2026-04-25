@@ -31,7 +31,7 @@ def get_exercise(exercise_id):
 
     return jsonify(exercise_data), 200
 
-@exercise_bp.route('', methods=['POST'])
+@exercise_bp.route('/', methods=['POST'])
 def create_exercise():
     json_data = request.get_json()
     if not json_data:
