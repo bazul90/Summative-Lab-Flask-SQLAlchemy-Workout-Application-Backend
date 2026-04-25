@@ -1,7 +1,18 @@
+#!/usr/bin/env python3
+"""Seed the database with initial data."""
+
+import sys
+from pathlib import Path
+
+# Add project root to Python path to enable absolute imports
+_project_root = Path(__file__).resolve().parent.parent
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
+
 from datetime import date
-from .app import create_app
-from .extensions import db
-from .models import Exercise, Workout, WorkoutExercise
+from server.app import create_app
+from server.extensions import db
+from server.models import Exercise, Workout, WorkoutExercise
 
 app = create_app()
 

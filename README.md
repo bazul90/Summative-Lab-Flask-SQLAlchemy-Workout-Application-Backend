@@ -21,26 +21,32 @@ pipenv shell
 
 ## Setup
 
-Initialize and migrate the database:
+Initialize and migrate the database (run from the project root):
 
 ```bash
-cd server
-flask db init
-flask db migrate -m "initial migration"
-flask db upgrade
+flask --app server.app db init
+flask --app server.app db migrate -m "initial migration"
+flask --app server.app db upgrade
 ```
 
-Seed the database with sample data:
+Seed the database with sample data (run from the project root):
 
 ```bash
-python seed.py
+python -m server.seed
 ```
 
 ## Run the Application
 
+Option 1: Using Flask (run from the project root):
+
 ```bash
-cd server
-flask run
+flask --app server.app run --debug
+```
+
+Option 2: Using the provided runner script:
+
+```bash
+python run.py
 ```
 
 The API will be available at `http://localhost:5000`
@@ -316,6 +322,7 @@ workout_exercises
 - Flask-Migrate
 - Flask-Marshmallow
 - Marshmallow
+- Marshmallow-SQLAlchemy
 - python-dotenv
 
 ## Git Workflow
